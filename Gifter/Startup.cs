@@ -1,3 +1,4 @@
+using Gifter.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,7 @@ namespace Gifter
         {
 
             services.AddControllers();
+            services.AddTransient<IPostRepository, PostRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Gifter", Version = "v1" });
